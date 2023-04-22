@@ -1,0 +1,26 @@
+<p-dialog p-dialog header="Header" (onHide)="close()" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }"
+  [draggable]="false" [resizable]="false">
+  <div class="card">
+    <form [formGroup]="frmCategory">
+      <h5>Create category</h5>
+      <div class="grid formgrid">
+        <div class="col-12 mb-2 lg:col-4 lg:mb-0">
+          <label htmlFor="name2">Code</label>
+          <input pInputText id="Code" type="text" placeholder="Code" formControlName="code" />
+        </div>
+        <div class="col-12 mb-2 lg:col-4 lg:mb-0">
+          <label htmlFor="email2">Title</label>
+          <input pInputText id="title" type="text" placeholder="Title" formControlName="title" />
+        </div>
+      </div>
+      <h5>Description</h5>
+      <textarea rows="5" cols="30" placeholder="Describe the category" pInputTextarea
+        formControlName="description"></textarea>
+      <div class="flex">
+        <div class="flex-initial flex align-items-end ">
+          <button type="button" pButton pRipple (click)="save()" label="save" class="p-button-success"></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</p-dialog>

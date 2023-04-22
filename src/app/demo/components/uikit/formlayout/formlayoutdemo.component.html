@@ -1,0 +1,63 @@
+<div class="grid p-fluid">
+  <div class="col-12 md:col-8">
+    <div class="card">
+      <form [formGroup]="frmCategory">
+        <h5>Create category</h5>
+        <div class="grid formgrid">
+          <div class="col-12 mb-2 lg:col-4 lg:mb-0">
+            <label htmlFor="name2">Code</label>
+            <input pInputText id="Code" type="text" placeholder="Code" formControlName="code" />
+          </div>
+          <div class="col-12 mb-2 lg:col-4 lg:mb-0">
+            <label htmlFor="email2">Title</label>
+            <input pInputText id="title" type="text" placeholder="Title" formControlName="title" />
+          </div>
+          <div class="col-12 mb-2 lg:col-4 lg:mb-0">
+            <label htmlFor="email2">Father</label>
+            <p-dropdown [options]="listCategory"  optionLabel="title" optionValue="id" placeholder="Select a parent" formControlName="id_parent_category"></p-dropdown>
+          </div>
+        </div>
+        <h5>Description</h5>
+        <textarea rows="5" cols="30" placeholder="Describe the category" pInputTextarea
+          formControlName="description"></textarea>
+        <div class="flex">
+          <div class="flex-initial flex align-items-end ">
+            <p-toast></p-toast>
+            <button type="button" pButton pRipple (click)="save()" label="save" class="p-button-success"></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <p-treeTable [value]="files" [columns]="cols" [scrollable]="true" [tableStyle]="{'min-width':'50rem'}">
+    <ng-template pTemplate="caption"> Category Tree </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+        <th style="width: 10rem">
+          <p-button icon="pi pi-cog"></p-button>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns; let i = index">
+          <p-treeTableToggler [rowNode]="rowNode" *ngIf="i === 0"></p-treeTableToggler>
+          {{ rowData[col.field] }}
+        </td>
+        <td>
+          <p-button [id]="rowData['id']" (click)="showDialog(rowData['id'],'show')" icon="pi pi-search" styleClass="p-button-success" [style]="{ 'margin-right': '.5em' }"></p-button>
+          <p-button [id]="rowData['id']" (click)="showDialog(rowData['id'], 'edit')" icon="pi pi-pencil" styleClass="p-button-warning" [style]="{ 'margin-right': '.5em' }"></p-button>
+          <p-button [id]="rowData['id']" (click)="delete(rowData['id'])" icon="pi pi-delete-left" styleClass="p-button-dager" [style]="{ 'margin-right': '.5em' }"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-treeTable>
+</div>
+
+<app-edit-category #modal [type]="type" [itemId]="itemId" (closeModal)="closeModal($event)" (onSave)="onSave()" [visible]="visible"></app-edit-category>
