@@ -56,7 +56,6 @@ export class FormCategoyDemoComponent implements OnInit {
         this.files = [];
         this.loadTreeTable()
       }, (error) => {
-        console.log(error)
         this.messageService.add({ severity: 'error', summary: 'Error Message', detail: 'Error save'});
       });
     }
@@ -66,18 +65,16 @@ export class FormCategoyDemoComponent implements OnInit {
         this.listCategory = res.list
         this.files = res.data
       });
-      console
       this.cols = [
         { field: 'id', header: 'ID' },
-        { field: 'code', header: 'Code' },
         { field: 'name', header: 'Title' },
-        { field: 'descrip', header: 'Description' }
+        { field: 'code', header: 'Code' },
+        { field: 'desc', header: 'Description' },
       ];
     }
 
     showDialog(id: number, type: string) {
       this.itemId = id
-      console.log( this.itemId)
       this.visible = true;
       this.type =type;
     }
