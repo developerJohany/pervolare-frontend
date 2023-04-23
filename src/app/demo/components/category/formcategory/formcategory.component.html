@@ -6,11 +6,11 @@
         <div class="grid formgrid">
           <div class="col-12 mb-2 lg:col-4 lg:mb-0">
             <label htmlFor="name2">Code</label>
-            <input pInputText id="Code" type="text" placeholder="Code" formControlName="code" />
+            <input pInputText id="Code" type="text" placeholder="Code" formControlName="code" [minlength]="minLength" [maxlength]="maxLength" />
           </div>
           <div class="col-12 mb-2 lg:col-4 lg:mb-0">
             <label htmlFor="email2">Title</label>
-            <input pInputText id="title" type="text" placeholder="Title" formControlName="title" />
+            <input pInputText id="title" type="text" placeholder="Title" formControlName="title" [minlength]="minLength" [maxlength]="maxLength" />
           </div>
           <div class="col-12 mb-2 lg:col-4 lg:mb-0">
             <label htmlFor="email2">Father</label>
@@ -19,7 +19,7 @@
         </div>
         <h5>Description</h5>
         <textarea rows="5" cols="30" placeholder="Describe the category" pInputTextarea
-          formControlName="description"></textarea>
+          formControlName="description" [maxlength]="maxDescripcion"></textarea>
         <div class="flex">
           <div class="flex-initial flex align-items-end ">
             <p-toast></p-toast>

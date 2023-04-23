@@ -22,6 +22,9 @@ export class FormCategoyDemoComponent implements OnInit {
     itemId: number | null = null;
     cols: any[] = [];
     listCategory = [];
+    maxDescripcion = 500;
+    maxLength = 10;
+    minLength = 2;
 
   constructor(
     private nodeService: NodeService,
@@ -48,12 +51,13 @@ export class FormCategoyDemoComponent implements OnInit {
       objeto.description = this.frmCategory.controls['description'].value;
       objeto.id_parent_category = this.frmCategory.controls['id_parent_category'].value;
       return  this.nodeService.createCategory(objeto).subscribe(res => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Category saved successfully' });
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: res.message });
         this.frmCategory.reset();
         this.files = [];
         this.loadTreeTable()
-      }, error => {
-        alert('Error al guardar')
+      }, (error) => {
+        console.log(error)
+        this.messageService.add({ severity: 'error', summary: 'Error Message', detail: 'Error save'});
       });
     }
 
@@ -93,6 +97,7 @@ export class FormCategoyDemoComponent implements OnInit {
         this.loadTreeTable()
       })
     }
+
 
 }
 
