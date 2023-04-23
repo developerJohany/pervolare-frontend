@@ -69,7 +69,9 @@ export class FormCategoyDemoComponent implements OnInit {
       console
       this.cols = [
         { field: 'id', header: 'ID' },
-        { field: 'name', header: 'Nombre' }
+        { field: 'code', header: 'Code' },
+        { field: 'name', header: 'Title' },
+        { field: 'descrip', header: 'Description' }
       ];
     }
 
