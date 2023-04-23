@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { FormLayoutDemoComponent } from './formlayoutdemo.component';
-import { FormLayoutDemoRoutingModule } from './formlayoutdemo-routing.module';
+import { FormCategoyDemoComponent } from './formcategory.component';
+import { FormCategoryDemoRoutingModule } from './formcategory-routing.module';
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { CalendarModule } from "primeng/calendar";
 import { ChipsModule } from "primeng/chips";
@@ -26,7 +26,7 @@ import { ButtonModule } from 'primeng/button';
 	imports: [
 		CommonModule,
 		FormsModule,
-		FormLayoutDemoRoutingModule,
+		FormCategoryDemoRoutingModule,
 		AutoCompleteModule,
 		CalendarModule,
 		ChipsModule,
@@ -43,6 +43,6 @@ import { ButtonModule } from 'primeng/button';
     DialogModule,
     ButtonModule
 	],
-	declarations: [FormLayoutDemoComponent, EditCategoryComponent]
+	declarations: [FormCategoyDemoComponent, EditCategoryComponent]
 })
-export class FormLayoutDemoModule { }
+export class FormCategoryDemoModule { }

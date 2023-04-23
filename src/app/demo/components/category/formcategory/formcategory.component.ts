@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TreeNode} from 'primeng/api';
 import { NodeService } from 'src/app/demo/service/node.service';
-import { Category } from 'src/app/demo/components/uikit/model/Category';
+import { Category } from 'src/app/demo/components/category/model/Category';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { Dialog } from 'primeng/dialog';
@@ -10,10 +10,10 @@ import { Dialog } from 'primeng/dialog';
 
 
 @Component({
-    templateUrl: './formlayoutdemo.component.html',
+    templateUrl: './formcategory.component.html',
     providers: [MessageService]
 })
-export class FormLayoutDemoComponent implements OnInit {
+export class FormCategoyDemoComponent implements OnInit {
    @ViewChild('modal') modal!: Dialog
     public frmCategory: FormGroup;
     public visible!: boolean;

@@ -17,7 +17,7 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Module',
                 items: [
-                    { label: 'Category', icon: 'pi pi-fw pi-home', routerLink: ['/uikit/formlayout'] }
+                    { label: 'Category', icon: 'pi pi-fw pi-home', routerLink: ['/category/index'] }
                 ]
             },
             {

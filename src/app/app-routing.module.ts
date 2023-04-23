@@ -8,8 +8,8 @@ import { AppLayoutComponent } from "./layout/app.layout.component";
             {
                 path: '', component: AppLayoutComponent,
                 children: [
-                    { path: '', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
-                    { path: 'uikit', loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UIkitModule) }
+                    { path: '', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
+                    { path: 'category', loadChildren: () => import('./demo/components/category/category.module').then(m => m.CategotyModule) }
                 ]
             },
             { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
