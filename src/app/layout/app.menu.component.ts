@@ -1,6 +1,8 @@
 import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
+import { MenuItem } from 'primeng/api';
+import { AuthService } from './service/auth.service';
 
 @Component({
     selector: 'app-menu',
@@ -8,9 +10,9 @@ import { LayoutService } from './service/app.layout.service';
 })
 export class AppMenuComponent implements OnInit {
 
-    model: any[] = [];
+    model: MenuItem[] = [];
 
-    constructor(public layoutService: LayoutService) { }
+  constructor(public layoutService: LayoutService, public authService: AuthService) { }
 
     ngOnInit() {
         this.model = [
@@ -21,17 +23,21 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
-                label: 'Auth',
-                icon: 'pi pi-fw pi-user',
+                label: 'Logout',
+                icon: 'pi pi-fw pi-sign-in',
                 items: [
                     {
-                        label: 'Login',
+                        label: 'Logout',
                         icon: 'pi pi-fw pi-sign-in',
-                        routerLink: ['/auth/login']
+                        command: (() => this.logout())
                     },
                 ]
             },
 
         ];
     }
+
+  async logout(): Promise<void> {
+    await this.authService.logout()
+  }
 }

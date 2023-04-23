@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
     imports: [RouterModule.forChild([
 
         { path: 'index', data: { breadcrumb: 'Form Layout' }, loadChildren: () => import('./formcategory/formcategory.module').then(m => m.FormCategoryDemoModule) },
-        { path: '**', redirectTo: '/notfound' }
+        { path: '**', redirectTo: '/auth/login' }
     ])],
     exports: [RouterModule]
 })

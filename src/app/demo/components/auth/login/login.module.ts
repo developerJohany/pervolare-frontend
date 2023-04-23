@@ -7,6 +7,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import { InputTextModule } from 'primeng/inputtext';
         FormsModule,
         PasswordModule
     ],
-    declarations: [LoginComponent]
+    declarations: [LoginComponent],
+    providers:[ JwtHelperService ]
 })
 export class LoginModule { }
